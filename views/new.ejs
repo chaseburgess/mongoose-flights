@@ -1,0 +1,30 @@
+<h1>All Flights</h1>
+<ul>
+  <% flights.forEach(flight => { %>
+    <li>
+      Airline: <%= flight.airline %><br>
+      Airport: <%= flight.airport %><br>
+      Flight No.: <%= flight.flightNo %><br>
+      Departure: <%= moment(flight.departs).format('MMMM D, YYYY h:mm A') %>
+    </li>
+  <% }); %>
+</ul>
+
+<a href="/flights/new">Add Flight</a>
+
+<h1>Add Flight</h1>
+<form action="/flights" method="POST">
+  <label for="airline">Airline:</label>
+  <input type="text" name="airline" required><br>
+
+  <label for="airport">Airport:</label>
+  <input type="text" name="airport" required><br>
+
+  <label for="flightNo">Flight No.:</label>
+  <input type="text" name="flightNo" required><br>
+
+  <label for="departs">Departure Date/Time:</label>
+  <input type="datetime-local" name="departs" required><br>
+
+  <input type="submit" value="Add Flight">
+</form>
